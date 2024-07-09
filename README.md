@@ -1,3 +1,22 @@
+Here is my current project progress , currently we are working on the design of the application , the following pages have been designed as of till today : 
+
+Home page : 
+
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/cf894994-6e65-4276-9432-bebbf589ec75)
+
+Property detail page:
+
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/9dbde6d8-373a-463a-839e-0bf4fe0cfd30)
+
+Reservations page:
+
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/3b3f4a22-d952-4fc7-89b8-eb8bb9dd68e1)
+
+Landlord detail page : 
+
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/c983ee5b-524a-400e-a0ba-30acd39bfc8e)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
