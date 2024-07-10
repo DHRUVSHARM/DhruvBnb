@@ -6,7 +6,6 @@ Inbox detail page ( where we can view chat history):
 
 Dropdown Menu:
 
-
 Here is my current project progress , currently we are working on the design of the application , the following pages have been designed as of till today : 
 
 Home page : 
