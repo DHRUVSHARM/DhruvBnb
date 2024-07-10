@@ -2,9 +2,15 @@ Updating the project progress the following pages have been designed and added:
 
 Inbox page:
 
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/55478413-1630-4c57-bcc7-de60335c36e0)
+
 Inbox detail page ( where we can view chat history):
 
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/6de67c36-9f42-48ab-9e90-7726fe9dc352)
+
 Dropdown Menu:
+
+![image](https://github.com/DHRUVSHARM/DhruvBnb/assets/88125615/f2c51ff6-c2e4-467c-a710-76400a8b4450)
 
 Here is my current project progress , currently we are working on the design of the application , the following pages have been designed as of till today : 
 
