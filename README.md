@@ -1,3 +1,9 @@
+Now you can view the django backend by visiting the following link : https://github.com/DHRUVSHARM/DhruvBnb_backend
+so now we have updated the code to retrieve the information on properties from a postgress db by hitting the django api endpoint here are some images I uploaded from the admin panel in django backend and which dynamically appear on the home screen
+
+![image](https://github.com/user-attachments/assets/0368c8e1-e47f-4c6e-89fb-44b6d94dcb1a)
+
+
 Updating the project progress the following pages have been designed and added:  
 
 Inbox page:
