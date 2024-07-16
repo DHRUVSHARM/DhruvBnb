@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { PropertyType } from "./PropertyList";
 
-const property = {
-    image_url: '/all_category.png',
-    title: 'Property Title',
-    price_per_night: 'Property Price',
-};
+interface PropertyListItemProps {
+    property: PropertyType
+}
 
-const PropertyListItem = () => {
+const PropertyListItem: React.FC<PropertyListItemProps> = ({ property }) => {
 
     return (
         <div
