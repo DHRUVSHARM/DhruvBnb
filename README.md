@@ -1,8 +1,9 @@
 So I have added user authentication with jwt and added the property upload features, I have connected my next.js frontend with django backend , with api endpoints for these tasks,  we will soon be adding more features , updates will be available here ,  here is a demo video for the same : 
 
+
+#demo update - add properties and jwt authentication 
 [![Watch the video](https://cdn.loom.com/sessions/thumbnails/a53f00091bc64677abf32a21949da6cc-6123fc5885c113d4-full-play.gif)](https://www.loom.com/share/a53f00091bc64677abf32a21949da6cc)
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/a53f00091bc64677abf32a21949da6cc?sid=49442ecd-8ed9-4727-8f28-2462b8bb7d01" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 Now you can view the django backend by visiting the following link : https://github.com/DHRUVSHARM/DhruvBnb_backend
 so now we have updated the code to retrieve the information on properties from a postgress db by hitting the django api endpoint here are some images I uploaded from the admin panel in django backend and which dynamically appear on the home screen
