@@ -1,3 +1,7 @@
+Now you can view the django backend by visiting the following link : https://github.com/DHRUVSHARM/DhruvBnb_backend
+so now we have updated the code to retrieve the information on properties from a postgress db by hitting the django api endpoint here are some images I uploaded from the admin panel in django backend and which dynamically appear on the home screen
+
+
 So I have added user authentication with jwt and added the property upload features, I have connected my next.js frontend with django backend , with api endpoints for these tasks,  we will soon be adding more features , updates will be available here ,  here is a demo video for the same : 
 
 
@@ -6,8 +10,6 @@ So I have added user authentication with jwt and added the property upload featu
 [![Watch the video](https://cdn.loom.com/sessions/thumbnails/a53f00091bc64677abf32a21949da6cc-6123fc5885c113d4-full-play.gif)](https://www.loom.com/share/a53f00091bc64677abf32a21949da6cc)
 
 
-Now you can view the django backend by visiting the following link : https://github.com/DHRUVSHARM/DhruvBnb_backend
-so now we have updated the code to retrieve the information on properties from a postgress db by hitting the django api endpoint here are some images I uploaded from the admin panel in django backend and which dynamically appear on the home screen
 
 ![image](https://github.com/user-attachments/assets/0368c8e1-e47f-4c6e-89fb-44b6d94dcb1a)
 
