@@ -34,7 +34,7 @@ const SignupModal = () => {
 
         if (response.access) {
             // we have the access token after signup,  we need to move to login
-            handleLogin(response.user.pk, response.access, response.refresh)
+            await handleLogin(response.user.pk, response.access, response.refresh)
 
             // if we receive the correct sign up response , we will move ahead and redirect
 
@@ -42,6 +42,7 @@ const SignupModal = () => {
 
             signupModal.close()
             router.push('/');
+            //router.refresh()
         }
         else {
             //console.log(response)

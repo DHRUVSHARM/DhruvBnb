@@ -2,7 +2,7 @@
 
 {/* making this a client component to use on click events ... */ }
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import MenuLink from "./MenuLink";
 import LogoutButton from "../LogoutButton";
@@ -18,7 +18,7 @@ const UserNav: React.FC<UserNavProps> = ({
 }) => {
     const loginModal = useLoginModal();
     const signupModal = useSignupModal();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <p>
@@ -39,34 +39,36 @@ const UserNav: React.FC<UserNavProps> = ({
                 {isOpen && (
                     <div className="w-[220px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex flex-col cursor-pointer">
 
-                        {userId ? (
-                            <LogoutButton></LogoutButton>
-                        ) : (
-                            <>
-                                <MenuLink
-                                    label='Log In'
-                                    onClick={() => {
-                                        console.log("clicked menu link for login")
-                                        console.log(loginModal);
-                                        setIsOpen(false);
-                                        loginModal.open()
-                                    }}
-                                ></MenuLink>
+                        {
+
+                            userId ? (
+                                <LogoutButton></LogoutButton>
+                            ) : (
+                                <>
+                                    <MenuLink
+                                        label='Log In'
+                                        onClick={() => {
+                                            console.log("clicked menu link for login")
+                                            console.log(loginModal);
+                                            setIsOpen(false);
+                                            loginModal.open()
+                                        }}
+                                    ></MenuLink>
 
 
-                                <MenuLink
-                                    label='Sign Up'
-                                    onClick={() => {
-                                        console.log("clicked menu link for sign up")
-                                        console.log();
-                                        setIsOpen(false);
-                                        signupModal.open()
-                                    }}
-                                ></MenuLink>
+                                    <MenuLink
+                                        label='Sign Up'
+                                        onClick={() => {
+                                            console.log("clicked menu link for sign up")
+                                            console.log();
+                                            setIsOpen(false);
+                                            signupModal.open()
+                                        }}
+                                    ></MenuLink>
 
-                            </>
+                                </>
 
-                        )}
+                            )}
 
                     </div>
                 )}
