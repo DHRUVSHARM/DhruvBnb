@@ -14,7 +14,7 @@ export async function handleLogin(userId: string, accessToken: string, refreshTo
     cookies().set('session_access_token', accessToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 60,
+        maxAge: 60 * 60 * 24 * 7,
         path: '/'
     });
 
@@ -37,4 +37,10 @@ export async function getUserId() {
     const userId = cookies().get('session_userid')?.value;
     console.log("got the user id : ", userId)
     return userId ? userId : null;
+}
+
+// function to get tokens for accessing authenticated requiring api calls to the backend
+export async function getAccessToken() {
+    let accessToken = cookies().get('session_access_token')?.value
+    return accessToken
 }

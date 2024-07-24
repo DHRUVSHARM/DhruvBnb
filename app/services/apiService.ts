@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import { getAccessToken } from "../lib/actions";
 
 const apiService = {
     get: async function (url: string): Promise<any> {
@@ -7,16 +8,25 @@ const apiService = {
 
         console.log(`get request from url : ${url} ...`)
 
+        const token = await getAccessToken();
+
         // we will return a Promise 
         return new Promise((resolve, reject) => {
             fetch(url, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (response.ok) {
+                        console.log("the response was ok ...")
+                    }
+                    console.log("response : ", response)
+                    return response.json()
+                })
                 .then((json) => {
                     console.log(json);
                     resolve(json);
@@ -32,16 +42,36 @@ const apiService = {
         url = `${process.env.NEXT_PUBLIC_API_HOST}${url}`
         console.log(`post request from url : ${url} with data in body as ${data} ...`)
 
+        // getting access token for authorization ..
+        const token = await getAccessToken();
+
+        let headers;
+
+        if (token) {
+            // headers for authorized requests ..
+            headers = {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+        else {
+            // for login , signup
+            headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+
+            }
+
+        }
+
+
+        // console.log("the token is : ", token)
 
         // we will return a Promise 
         return new Promise((resolve, reject) => {
             fetch(url, {
                 method: 'POST',
                 body: data,
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
+                headers: headers
             })
                 .then(response => response.json())
                 .then((json) => {

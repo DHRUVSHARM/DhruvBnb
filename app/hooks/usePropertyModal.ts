@@ -1,0 +1,16 @@
+/* this script is to help use the Login Modal */
+import { create } from "zustand";
+
+interface AddPropertyModalStore {
+    isOpen: boolean;
+    open: () => void;
+    close: () => void;
+}
+
+const usePropertyModal = create<AddPropertyModalStore>((set) => ({
+    isOpen: false,
+    open: () => set({ isOpen: true }),
+    close: () => set({ isOpen: false })
+}));
+
+export default usePropertyModal;
