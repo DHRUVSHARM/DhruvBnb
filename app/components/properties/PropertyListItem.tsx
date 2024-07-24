@@ -8,10 +8,14 @@ interface PropertyListItemProps {
 
 const PropertyListItem: React.FC<PropertyListItemProps> = ({ property }) => {
 
+    const router = useRouter()
+
     return (
         <div
             className="cursor-pointer"
-            onClick={() => { console.log("clicked ...") }}
+            onClick={() => {
+                router.push(`/properties/${property.id}/`)
+            }}
         >
             <div className="relative overflow-hidden aspect-square rounded-xl">
                 <Image

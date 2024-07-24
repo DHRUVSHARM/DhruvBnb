@@ -32,7 +32,6 @@ const Navbar = async () => {
                         <AddPropertyButton
                             userId={userId}
                         >
-
                         </AddPropertyButton>
                         <UserNav
                             userId={userId}
