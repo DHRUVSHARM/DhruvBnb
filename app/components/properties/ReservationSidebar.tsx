@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Calendar, Range } from 'react-date-range';
-import { differenceInDays, eachDayOfInterval } from "date-fns";
+import { differenceInDays, eachDayOfInterval, format } from "date-fns";
 
 import apiService from "@/app/services/apiService";
 import useLoginModal from "@/app/hooks/useLoginModal";
@@ -42,6 +42,37 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
     const [guests, setGuests] = useState<string>('1')
 
     const guestsRange = Array.from({ length: property.guests }, (_, index) => index + 1)
+
+    const performBooking = async () => {
+        if (userId) {
+
+            console.log("performing user booking with id : ", userId)
+
+            if (dateRange.startDate && dateRange.endDate) {
+                const formData = new FormData()
+                formData.append('guests', guests)
+                formData.append('start_date', format(dateRange.startDate, 'yyyy-MM-dd'))
+                formData.append('end_date', format(dateRange.endDate, 'yyyy-MM-dd'))
+                formData.append('number_of_nights', nights.toString())
+                formData.append('total_price', totalPrice.toString())
+
+                const response = await apiService.post(`/api/properties/${property.id}/book`, formData)
+
+                if (response.success) {
+                    console.log("booking placed from backend ....")
+                }
+                else {
+                    console.log("booking went wrong ...")
+                }
+
+            }
+
+
+        }
+        else {
+            loginModal.open();
+        }
+    }
 
     const _setDateRange = (selection: any) => {
         const newStartDate = new Date(selection.startDate)
@@ -126,7 +157,9 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
 
             </div>
 
-            <div className="w-full mb-6 py-6 text-center text-white bg-airbnb hover:bg-airbnb-dark rounded-xl">
+            <div
+                onClick={performBooking}
+                className="w-full mb-6 py-6 text-center text-white bg-airbnb hover:bg-airbnb-dark rounded-xl">
                 Book
             </div>
 
