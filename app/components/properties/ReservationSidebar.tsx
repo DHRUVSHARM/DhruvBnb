@@ -40,6 +40,7 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
     const [dateRange, setDateRange] = useState<Range>(initialDateRange)
     const [minDate, setMinDate] = useState<Date>(new Date())
     const [guests, setGuests] = useState<string>('1')
+    const [bookedDates, setBookedDates] = useState<Date[]>([]);
 
     const guestsRange = Array.from({ length: property.guests }, (_, index) => index + 1)
 
@@ -94,7 +95,27 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
         })
     }
 
+    const getReservations = async () => {
+        const reservations = await apiService.get(`/api/properties/${property.id}/reservations/`)
+        // we use the reservations from the backend to block the dates on the calendar available to users to book
+        let dates: Date[] = [];
+
+        reservations.forEach((reservation: any) => {
+            const range = eachDayOfInterval({
+                start: new Date(reservation.start_date),
+                end: new Date(reservation.end_date),
+            })
+
+            //extend the dates to add the booked days
+            dates = [...dates, ...range]
+        });
+
+        setBookedDates(dates)
+    }
+
     useEffect(() => {
+        getReservations();
+
         if (dateRange.startDate && dateRange.endDate) {
             const dayCount = differenceInDays(
                 dateRange.endDate,
@@ -124,6 +145,7 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
 
             <DatePicker
                 value={dateRange}
+                bookedDates={bookedDates}
                 onChange={(value) => _setDateRange(value.selection)}
             >
 

@@ -1,8 +1,22 @@
 import Image from "next/image";
 import ContactButton from "@/app/components/ContactButton";
 import PropertyList from "@/app/components/properties/PropertyList";
+import apiService from "@/app/services/apiService";
+import { getUserId } from "@/app/lib/actions";
 
-const LandlordDetailPage = () => {
+// params is added for dynamic routing ..
+const LandlordDetailPage = async ({ params }: { params: { id: string } }) => {
+    // get info of landlord  , not necessarily the authed user , as we can view the properties 
+    // owned by other landlords as well
+    const landlord = await apiService.get(`/api/auth/${params.id}`)
+    console.log("*******************************************")
+    console.log("the landlord details from backend : ", landlord)
+    console.log("*******************************************")
+
+
+    // the user id of the currently authenticated user
+    const userId = await getUserId();
+
     return (
         <main className="max-w-[1500px] mx-auto px-6 pb-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
