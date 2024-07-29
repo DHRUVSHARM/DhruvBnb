@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PropertyType } from "./PropertyList";
+import FavoriteButton from "../FavoriteButton";
 
 interface PropertyListItemProps {
     property: PropertyType
+    markFavorite?: (is_favorite: boolean) => void;
 }
 
-const PropertyListItem: React.FC<PropertyListItemProps> = ({ property }) => {
+const PropertyListItem: React.FC<PropertyListItemProps> = ({ property, markFavorite }) => {
 
     const router = useRouter()
 
@@ -25,6 +27,20 @@ const PropertyListItem: React.FC<PropertyListItemProps> = ({ property }) => {
                     className="hover:scale-110 object-cover transition h-full w-full"
                     alt="Beach house"
                 />
+
+                {
+                    // if this function is defined , then we pass it to the child button
+                    markFavorite && (
+                        <FavoriteButton
+                            id={property.id}
+                            is_favorite={property.is_favorite}
+                            markFavorite={(is_favorite) => markFavorite(is_favorite)}
+                        >
+
+                        </FavoriteButton>
+                    )
+
+                }
 
             </div>
 
