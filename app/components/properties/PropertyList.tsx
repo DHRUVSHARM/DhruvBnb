@@ -20,7 +20,8 @@ export type PropertyType = {
 }
 
 interface PropertyListProps {
-    landlord_id?: string | null
+    landlord_id?: string | null;
+    favorites?: boolean | null;
 }
 
 /*
@@ -31,7 +32,8 @@ interface PropertyListProps {
 
 */
 const PropertyList: React.FC<PropertyListProps> = ({
-    landlord_id
+    landlord_id,
+    favorites
 }) => {
     const [properties, setProperties] = useState<PropertyType[]>([])
 
@@ -60,12 +62,29 @@ const PropertyList: React.FC<PropertyListProps> = ({
         let url = '/api/properties/'
 
         if (landlord_id) {
-            // we need to return filtered properties , we need a query string in the url
+            // we need to return filtered properties based on landlord , we need a query string in the url
             url += `?landlord_id=${landlord_id}`
+        }
+        else if (favorites) {
+            // we need to return the favorite properties , since that is the prop passed
+            url += '?is_favorites=true'
         }
 
         const properties_data = await apiService.get(url)
-        setProperties(properties_data.data)
+        // now we will set the properties with the is favorite
+
+        const tempProperties = properties_data.data.map((property: PropertyType) => {
+            if (properties_data.favourites.includes(property.id)) {
+                property.is_favorite = true;
+            }
+            else {
+                property.is_favorite = false;
+            }
+
+            return property
+        })
+
+        setProperties(tempProperties)
     };
 
     useEffect(() => {
