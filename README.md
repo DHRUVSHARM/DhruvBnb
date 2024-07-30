@@ -9,16 +9,15 @@ The latest demo video is available here with all updated features as of today , 
 (gives detailed demo of all features)
 part 1 : 
 
-[![Watch the video - App Demo Part 1](https://cdn.loom.com/sessions/thumbnails/b36f88357fe5473dae42d2c5ed336021-full-play.gif)](https://www.loom.com/share/b36f88357fe5473dae42d2c5ed336021)
+[![Watch Video - app demo part 1](https://cdn.loom.com/sessions/thumbnails/b36f88357fe5473dae42d2c5ed336021-15776cc01f403204-full-play.gif)](https://www.loom.com/share/b36f88357fe5473dae42d2c5ed336021)
 
-Watch the video - App Demo Part 1
+
 
 (talks about features i am working on)
 part 2: 
 
 [![Watch the video - App Demo Part 2](https://cdn.loom.com/sessions/thumbnails/4e43a0512899481cabc85eab756e7e99-14b596055e356039-full-play.gif)](https://www.loom.com/share/4e43a0512899481cabc85eab756e7e99)
 
-Watch the video - App Demo Part 2
 
 Also here are screenshots of the different pages available to the user : 
 
