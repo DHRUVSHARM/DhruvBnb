@@ -82,6 +82,19 @@ const UserNav: React.FC<UserNavProps> = ({
                                     </MenuLink>
 
 
+                                    <MenuLink
+                                        label="Inbox"
+                                        onClick={() => {
+                                            setIsOpen(false)
+                                            router.push('/inbox')
+                                        }}
+
+                                    >
+
+                                    </MenuLink>
+
+
+
 
                                     <LogoutButton></LogoutButton>
                                 </>

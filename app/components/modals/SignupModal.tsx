@@ -7,6 +7,7 @@ import useSignupModal from "@/app/hooks/useSignupModal";
 import CustomButton from "../forms/CustomButton";
 import apiService from "@/app/services/apiService";
 import { handleLogin } from "@/app/lib/actions";
+import { ChangeEvent } from "react";
 
 const SignupModal = () => {
 
@@ -16,7 +17,21 @@ const SignupModal = () => {
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
+    // this are the details for the landlord ...
+    const [name, setName] = useState('');
+    const [dataImage, setDataImage] = useState<File | null>(null);
+
     const [errors, setErrors] = useState<string[]>([]);
+
+
+    const setImage = (event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files.length > 0) {
+            const tmpImage = event.target.files[0];
+
+            setDataImage(tmpImage)
+        }
+    }
+
 
     // helper function to submit the sign up info,  uses our api service to make a post request
     const submitSignup = async () => {
@@ -27,7 +42,6 @@ const SignupModal = () => {
             email: email,
             password1: password1,
             password2: password2,
-
         }
 
         const response = await apiService.post('/api/auth/register/', JSON.stringify(data_from_form))
@@ -66,8 +80,12 @@ const SignupModal = () => {
                     //console.log(`clicked ... the event is : ${e.target.value}`)
                     setEmail(e.target.value)
                 }} type="email" className="w-full h-[54px] border-gray-300 rounded-xl px-4" placeholder="Your email address"></input>
+
                 <input onChange={(e) => setPassword1(e.target.value)} type="password" className="w-full h-[54px] border-gray-300 rounded-xl px-4" placeholder="Your password"></input>
                 <input onChange={(e) => setPassword2(e.target.value)} type="password" className="w-full h-[54px] border-gray-300 rounded-xl px-4" placeholder="Retype Password"></input>
+
+
+
 
                 {errors.map((error, index) => {
                     return (
