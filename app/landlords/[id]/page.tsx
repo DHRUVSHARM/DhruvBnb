@@ -31,7 +31,7 @@ const LandlordDetailPage = async ({ params }: { params: { id: string } }) => {
                         >
 
                         </Image>
-                        <h1 className="mt-6 text-2xl">Landlord Name</h1>
+                        <h1 className="mt-6 text-2xl">{landlord.name ? landlord.name : 'Landlord'}</h1>
 
                         {
                             userId != params.id && (
