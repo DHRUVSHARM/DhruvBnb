@@ -35,7 +35,12 @@ const LandlordDetailPage = async ({ params }: { params: { id: string } }) => {
 
                         {
                             userId != params.id && (
-                                <ContactButton></ContactButton>
+                                <ContactButton
+                                    userId={userId}
+                                    landlordId={params.id}
+                                >
+
+                                </ContactButton>
                             )
                         }
 
