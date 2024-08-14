@@ -74,7 +74,7 @@ const AddPropertyModal = () => {
             // we will have to format the response , if successful ..
             if (response.success) {
                 console.log("success , client component ..")
-                router.push('/')
+                router.push('/?added=true')
                 addPropertyModal.close()
             }
             else {
